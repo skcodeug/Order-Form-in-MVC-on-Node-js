@@ -9,8 +9,7 @@ router.get('/', (req, res) => {
 
 router.get('/re', (req, res) => {
    let tableNo= ""
-   let menuNo = ""
-   res.render("restaurant", '5', {menuNo});
+   res.render("restaurant", {tableNo});
 })
 
 router.post("/create", async (req, res)=> {
