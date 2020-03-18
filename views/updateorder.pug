@@ -48,9 +48,9 @@ html(lang='en')
           .spaces.titlediv
             h3 Tao Bao Chinese Restaurant
           .spaces
-            form(action='/create', method='POST')
+            form(action='/updateorder', method='POST')
               label.label(for='tableNo') Table No:
-              input.form-control(type='number', name='tableNo', placeholder='Table Number', required='')
+              input.form-control(type='number', name='tableNo', placeholder='Table Number', value=tableNo, required='')
               label.label(for='menuNo') Menu No:
               input.form-control(type='number', name='menuNo', placeholder='Menu Item Number', required='')
               label.label(for='outlet') Outlet:
@@ -64,4 +64,4 @@ html(lang='en')
                 input.btn.btn.dark.button(type='reset', value='Cancel')
                 input.btn.btn.dark.button(type='submit', value='Submit Order')
           .spaces.titlediv.footer
-            b ©2020 Refactory Class Group
+            b &copy2020 Refactory Class Group

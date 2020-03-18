@@ -3,13 +3,12 @@ const router = express.Router();
 const Order = require('../models/orderModel');
 const path = require('path');
 
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../views', 'restaurant.html'));
-})
+// router.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../views', 'restaurant.html'));
+// })
 
-router.get('/re', (req, res) => {
-   let tableNo= ""
-   res.render("restaurant", {tableNo});
+router.get('/', (req, res) => {
+  res.render('restaurant');
 })
 
 router.post("/create", async (req, res)=> {
@@ -20,7 +19,7 @@ router.post("/create", async (req, res)=> {
        console.log('Item has been saved')
        res.redirect('/orderlist');
     } catch (error) {
-        console.log(req.body);
+        console.log(error);
        res.status(400).send("unable to save to database");
     }
  });
@@ -63,8 +62,19 @@ router.post("/create", async (req, res)=> {
     try {
        if(req.query.tableNo){
           let{tableNo} = req.query
-         res.render("restaurant", {tableNo})
+         res.render("updateorder", {tableNo})
        }
+      res.redirect("/orderlist");
+    } catch (error) {
+      console.log("Could not update the order");
+      res.redirect("/orderlist");
+    }
+  });
+
+  router.post("/updateorder", async (req, res)=>{
+    try{
+      let {tableNo} = req.body;
+      await Order.updateOne({tableNo}, req.body);
       res.redirect("/orderlist");
     } catch (error) {
       console.log("Could not update the order");

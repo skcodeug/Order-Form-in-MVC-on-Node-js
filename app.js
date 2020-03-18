@@ -20,8 +20,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static('public'));
 app.use("/", orderRoutes);
 
-var mongodb = 'mongodb://localhost:27017/restaurant'
-mongoose.connect(mongodb, {useNewUrlParser: true, useUnifiedTopology: true});
+var mongodb = 'mongodb://localhost:27017/restaurant';
+mongoose.connect(mongodb, {useNewUrlParser: true, useUnifiedTopology: true}, function (err) {
+   if (err) throw err;
+   console.log('Successfully connected');
+});
 
 // ERROR HANDLER
 app.get ('*', (req, res) => {

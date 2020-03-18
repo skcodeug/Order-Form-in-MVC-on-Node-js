@@ -12,6 +12,32 @@
         form > label {
             display: inline-block;
             width: 8rem;
+            margin-bottom: 10px;
+        }
+        .button {
+            width: 10rem;
+            border: 1px solid #000;
+            border-radius: 0.8rem;
+            background-color: aliceblue;
+            margin-left: 25px;
+        }
+        .titlediv {
+            height: 4rem; 
+            width: 100%;
+            margin-bottom: 20px; 
+            text-align: center;
+            display: inline-block; 
+            background-color: rgb(123, 136, 132);
+        }
+        form > input {
+            margin-bottom: 10px;
+        }
+        .footer {
+            /* margin-top: 15px; */
+            padding-top: 5px;
+            font-style: italic;
+            height: 35px;
+            font-size: medium;
         }
     </style>
     <title>Chinese Restaurant</title>
@@ -21,19 +47,22 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="spaces" style="height: 4rem; margin-bottom: 20px; display: inline-block; background-color: aquamarine;"><h3>Tao Bao Chinese Restaurant</h3></div>
+                <div class="spaces titlediv"><h3>Tao Bao Chinese Restaurant</h3></div>
                 <div class="spaces">
                     <form action="/create" method="POST">
-                        <label class="label" for="tableNo">Table No:</label><input type="number" name="tableNo" placeholder="Table Number" required><br>
-                        <label class="label" for="menuNo">Menu No:</label><input type="number" name="menuNo" placeholder="Menu Item Number" required><br>
-                        <label class="label" for="outlet">Outlet:</label><input type="text" name="outlet" placeholder="Name of Branch"><br>
-                        <label class="label" for="dateOo">Order Date:</label><input name="dateOo" type="date" required><br>
-                        <label class="label" for="waiterNo">Waiter No:</label><input type="number" name="waiterNo" placeholder="Waiter/Waitress Tag" required>
-                        <br><br>
-                        <input type="reset" value="Cancel">
-                        <input type="submit" value="Submit Order">
+                        <label class="label" for="tableNo">Table No:</label><input  class="form-control"  type="number" name="tableNo" placeholder="Table Number" required>
+                        <label class="label" for="menuNo">Menu No:</label><input class="form-control" type="number" name="menuNo" placeholder="Menu Item Number" required>
+                        <label class="label" for="outlet">Outlet:</label><input class="form-control" type="text" name="outlet" placeholder="Name of Branch">
+                        <label class="label" for="dateOo">Order Date:</label><input class="form-control"  name="dateOo" type="date" required>
+                        <label class="label" for="waiterNo">Waiter No:</label><input class="form-control"  type="number" name="waiterNo" placeholder="Waiter/Waitress Tag" required>
+                        <!-- <br><br> -->
+                        <div style="align-items: center; padding-left: 40px; margin-top: 30px; margin-bottom: 20px;">
+                            <input  class= "btn btn dark button"   type="reset" value="Cancel">
+                            <input  class= "btn btn dark button" type="submit" value="Submit Order">
+                        </div>
                     </form>
                 </div>
+                <div class="spaces titlediv footer"><b>&copy2020 Refactory Class Group</b></div>
             </div>
         </div>
     </div>
