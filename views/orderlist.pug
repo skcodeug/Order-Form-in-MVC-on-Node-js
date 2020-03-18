@@ -1,38 +1,41 @@
 html
     head
-        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+        include components/header
         title List of orders
     body
-        div.form-row
-            div.col.form-group.col-md-9    
-                form.search(action='/deleteorder')
-                    div.form-row
-                        div.col-md-8
-                            input.form-control(name='tableNo' placeholder="Enter your search term ...")
-                        div.col-md-4
-                            input.btn.btn-dark.btn-block(type="submit", value="DELETE")
-        div.form-row
-            div.col.form-group.col-md-9    
-                form.search(action='/updateorder')
-                    div.form-row
-                        div.col-md-8
-                            input.form-control(name='tableNo' placeholder="Enter your search term ...")
-                        div.col-md-4
-                            input.btn.btn-dark.btn-block(type="submit", value="UPDATE")
-        table.table
-            thead.thead-dark
-                tr
-                    th Table No.
-                    th Menu Item No.
-                    th Outlet/Branch
-                    th Order Date
-                    th Waiter Tag
-                tbody
-                    //- this how you create a loop in PUG
-                    each order in orders
-                        tr
-                            td #{order.tableNo}
-                            td #{order.menuNo}
-                            td #{order.outlet}
-                            td #{order.dateOo}
-                            td #{order.waiterNo}
+        include components/navbar
+        .container.overflow-auto(style='height: 85%')
+            div.form-row
+                div.col.form-group.col-md-9    
+                    form.search(action='/deleteorder')
+                        div.form-row
+                            div.col-md-8
+                                input.form-control(name='tableNo' placeholder="Enter your search term ...")
+                            div.col-md-4
+                                input.btn.btn-dark.btn-block(type="submit", value="DELETE")
+            div.form-row
+                div.col.form-group.col-md-9    
+                    form.search(action='/updateorder')
+                        div.form-row
+                            div.col-md-8
+                                input.form-control(name='tableNo' placeholder="Enter your search term ...")
+                            div.col-md-4
+                                input.btn.btn-dark.btn-block(type="submit", value="UPDATE")
+            table.table
+                thead.thead-dark
+                    tr
+                        th Table No.
+                        th Menu Item No.
+                        th Outlet/Branch
+                        th Order Date
+                        th Waiter Tag
+                    tbody
+                        //- this how you create a loop in PUG
+                        each order in orders
+                            tr
+                                td #{order.tableNo}
+                                td #{order.menuNo}
+                                td #{order.outlet}
+                                td #{order.dateOo}
+                                td #{order.waiterNo}
+        include components/footer

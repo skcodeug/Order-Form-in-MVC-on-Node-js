@@ -1,52 +1,14 @@
 doctype html
 html(lang='en')
   head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
-    style.
-      .spaces {
-      padding-left: 15px;
-      padding-right: 15px;
-      }
-      form > label {
-      display: inline-block;
-      width: 8rem;
-      margin-bottom: 10px;
-      }
-      .button {
-      width: 10rem;
-      border: 1px solid #000;
-      border-radius: 0.8rem;
-      background-color: aliceblue;
-      margin-left: 25px;
-      }
-      .titlediv {
-      height: 4rem;
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
-      display: inline-block;
-      background-color: rgb(123, 136, 132);
-      }
-      form > input {
-      margin-bottom: 10px;
-      }
-      .footer {
-      /* margin-top: 15px; */
-      padding-top: 5px;
-      font-style: italic;
-      height: 35px;
-      font-size: medium;
-      }
+    include components/header
     title Chinese Restaurant
   body
+    include components/navbar
     .container
       .row
         .col-md-3
         .col-md-6
-          .spaces.titlediv
-            h3 Tao Bao Chinese Restaurant
           .spaces
             form(action='/updateorder', method='POST')
               label.label(for='tableNo') Table No:
@@ -63,5 +25,4 @@ html(lang='en')
               div(style='align-items: center; padding-left: 40px; margin-top: 30px; margin-bottom: 20px;')
                 input.btn.btn.dark.button(type='reset', value='Cancel')
                 input.btn.btn.dark.button(type='submit', value='Submit Order')
-          .spaces.titlediv.footer
-            b &copy2020 Refactory Class Group
+    sinclude components/footer
